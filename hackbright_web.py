@@ -53,6 +53,22 @@ def student_add():
     #shows page of student info, can really return to any page you want
     return redirect("/student?github=" + github)
 
+@app.route("/project")
+def projet_info():
+    """Show information about a project."""
+
+    title = request.args.get("title")
+
+    project_info = hackbright.get_project_by_title(title)
+    print("here")
+    print(project_info)
+    html = render_template("project_info.html",
+                            title = title,
+                            description=project_info[1],
+                            max_grade=project_info[2])
+
+    return html
+
 
 if __name__ == "__main__":
     hackbright.connect_to_db(app)
