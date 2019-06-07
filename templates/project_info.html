@@ -5,11 +5,13 @@
 </head>
 <body>
     <h1>Project Information</h1>
-
+    <p> Project: {{ title }} </p>
+    <p> Description: {{ description }} </p>
+    <p> Max Grade: {{ max_grade }} </p>
     <ul>
-      <li>Project: {{ title }}</li>
-      <li>Description: {{ description }}</li>
-      <li>Max Grade: {{ max_grade }}</li>
+        {% for student, grade in grades%}
+      <li>Student: <a href="/student?github={{ student }}"> {{student}} </a> ; Grade: {{ grade }}</li>
+        {% endfor %}
     </ul>
 
 

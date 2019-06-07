@@ -61,11 +61,15 @@ def projet_info():
 
     project_info = hackbright.get_project_by_title(title)
 
+    grades = hackbright.get_grades_by_title(title)
+    print(grades)
+
     print(project_info)
     html = render_template("project_info.html",
                             title = title,
                             description=project_info[1],
-                            max_grade=project_info[2])
+                            max_grade=project_info[2],
+                            grades=grades)
 
     return html
 
