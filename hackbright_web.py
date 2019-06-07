@@ -60,7 +60,7 @@ def projet_info():
     title = request.args.get("title")
 
     project_info = hackbright.get_project_by_title(title)
-    print("here")
+
     print(project_info)
     html = render_template("project_info.html",
                             title = title,
